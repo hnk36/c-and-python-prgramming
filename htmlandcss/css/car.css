@@ -1,0 +1,82 @@
+.continer {
+  display: flex;
+  height: 200px;
+    width: 100%;
+  justify-content: center;
+  background-color:#c8ecee;
+  margin-bottom: 40px;
+}
+.item1 {
+  background-color:#c8ecee;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #c8ecee;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #372323;
+  height: 50px;
+    width: 100px;
+}
+.item2 {
+  background-color:#c8ecee;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #c8ecee;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  height: 50px;
+    width: 100px;
+}
+.item3 {
+  background-color:#c8ecee;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #c8ecee;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  height: 50px;
+    width: 100px;
+    
+
+}
+.continer1 {
+  display: flex;
+  height: 500px;
+  width: 80%;
+  justify-content: center;
+  background-color:#c8ecee;
+  margin-left: 140px;
+  margin-bottom: 40px;
+  border: 4px solid #c8ecee;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #b5a2a2;
+
+  
+  
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .box {
+    flex: 0 0 25%;  /* Each box will take up 25% of the row (i.e., 4 boxes per row) */
+    
+    padding-top: 35px;
+    font-size: 20px;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    left: 10%;
+    box-sizing: border-box;  /* Include padding in box's total width and height */
+}
+
+/* You can add additional styles for the boxes if needed */
+.container .box {
+    border: 1px solid #327c81;
+width:200px;
+    height: 80px;  /* Or whatever height you want */
+    background-color: #e8c8ee;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #000;
+    text-align: center;
+}

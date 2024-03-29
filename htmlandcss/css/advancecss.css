@@ -1,0 +1,68 @@
+h1 {
+    font-size:40px;
+    color:black;
+    text-align: left;
+    margin-top: 30px ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+    font-size:20px;
+    color:black;
+    text-align: left;
+    margin-top: 30px ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    font-size:20px;
+    color:rgb(69, 37, 212);
+    text-align: left;
+    margin-top: 30px ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box1{
+    width: 400px;
+    height: 400px;
+    background-image : conic-gradient(red 20% 30%, yellow, green, blue, red);
+    border: solid 1px blue;
+    margin-top: 40px;
+margin-left: 50%;
+border-radius: 50%;
+text-align: center;
+padding-top: 200px;
+transform: translateX(-50%);
+transform: translate(-50%, 20%);
+transform-origin:center;
+transform:s
+}
+.login{
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border: solid 1px blue;
+    margin: 10px;
+    border:1px solid black;
+    padding: 12px;
+    padding-right: 12px;
+}
+#login1{
+    width: 90%; 
+    background-color: white;
+    border: solid 1px rgb(131, 123, 123);
+    margin: 10px;
+    border-radius: none;
+    color: blanchedalmond;
+}
+#login2{
+    width: 90%; 
+    background-color: white;
+    border: solid 1px rgb(142, 136, 136);
+    margin: 10px;
+    border-radius: none;
+}
+#login3{
+    width: 90%; 
+    background-color: rgb(14, 143, 14);
+    border: solid 1px rgb(11, 171, 51);
+    margin: 10px;
+    border-radius: 10px;
+}
