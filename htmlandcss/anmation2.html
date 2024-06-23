@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        body{
+            background-color: hsl(120, 8%, 3%);
+            margin: 0;
+            padding: 0;
+        }
+        .major{
+            background-image: linear-gradient( #f6d365 0%, #fda085 100%);
+            border:none;
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+            text-align: center;
+            border-radius: 10px;    
+            animation:mybox 3s ease forwards,
+                     swing 2s 3s linear forwards;
+        }
+
+        @keyframes mybox{
+            0%{transform: translateY(-750px);}
+            75%{transform: translateY(100px)}
+        }
+        @keyframes swing {
+            0%{transform:  rotateZ(0deg) ;}
+            50%{transform: rotate(90deg);}
+            
+        }
+        input[name="username"]{
+            width: 300px;
+            height: 40px;
+            margin-top: 100px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+
+        </style>
+    </head>
+    <body>
+        <div class="major"><h1>welcome to login</h1>
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="username" required>
+            <button type="submit" name="Sub" style="height: 60px; margin-right: 15px; background-color: black; color: aliceblue;border-radius: 5px; ">hey</button>
+        </div>
+    </body>
+    </html>
