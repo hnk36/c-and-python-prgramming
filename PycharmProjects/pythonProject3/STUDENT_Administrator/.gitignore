@@ -1,0 +1,21 @@
+# Ignore all files in the user's home directory
+../../../.*
+
+# Ignore specific directories
+../../../3D Objects/
+../../../AppData/
+../../../CLionProjects/
+../../../Contacts/
+../../../Documents/
+../../../Downloads/
+../../../Favorites/
+../../../IntelGraphicsProfiles/
+../../../Links/
+../../../Music/
+../../../NTUSER.DAT*
+../../../OneDrive/
+../../../Saved Games/
+../../../Searches/
+../../../Tracing/
+../../../Videos/
+../../../programming-project/
