@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link href="{% static 'css/todo.css' %}" rel="stylesheet"> <!-- Link to the custom stylesheet -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">To-Do List</h1>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <input type="text" name="task_title" class="form-control" placeholder="Add a new task" required>
+                        <input type="text" name="task_description" class="form-control" placeholder="Description">
+                        <select name="task_priority" class="form-control">
+                            <option value="H">High</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Low</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="list-group" id="todo-list">
+                    {% for task in tasks %}
+                        <li class="list-group-item" data-task-id="{{ task.id }}">
+                            <h5>{{ task.title }} ({{ task.get_priority_display }})</h5>
+                            <p>{{ task.description }}</p>
+                            <p>Due: {{ task.due_date }}</p>
+                            <button class="btn btn-danger btn-sm delete-task">Delete</button>
+                            <form method="POST" class="mb-3">
+                                {% csrf_token %}
+                                <input type="hidden" name="task_id" value="{{ task.id }}">
+                                <div class="input-group">
+                                    <input type="text" name="subtask_title" class="form-control" placeholder="Add a subtask">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="submit">Add Subtask</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <ul class="list-group">
+                                {% for subtask in task.subtask_set.all %}
+                                    <li class="list-group-item">
+                                        {{ subtask.title }}
+                                        {% if subtask.is_complete %}
+                                            <span class="badge badge-success">Complete</span>
+                                        {% else %}
+                                            <span class="badge badge-warning">Incomplete</span>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <form method="POST" class="mt-3">
+                                {% csrf_token %}
+                                <input type="hidden" name="task_id" value="{{ task.id }}">
+                                <div class="input-group">
+                                    <input type="text" name="comment_text" class="form-control" placeholder="Add a comment">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="submit">Add Comment</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <ul class="list-group mt-3">
+                                {% for comment in task.comment_set.all %}
+                                    <li class="list-group-item">
+                                        <strong>{{ comment.user.username }}:</strong> {{ comment.comment_text }}
+                                        <span class="text-muted float-right">{{ comment.created_at }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <a href="{% url 'logout' %}" class="btn btn-secondary btn-sm btn-logout">Logout</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const todoList = document.getElementById('todo-list');
+
+            todoList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete-task')) {
+                    const taskItem = event.target.closest('.list-group-item');
+                    const taskId = taskItem.getAttribute('data-task-id');
+
+                    fetch(`?task_id=${taskId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}',
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            taskItem.remove();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

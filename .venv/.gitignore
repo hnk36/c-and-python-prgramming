@@ -1,0 +1,26 @@
+# created by virtualenv automatically
+
+/venv/
+env/
+
+# Python compiled files
+*.pyc
+__pycache__/
+
+# Database files
+*.sqlite3
+
+# Environment variables
+.env
+
+# Static and media files
+/static/
+/media/
+
+# Local settings
+local_settings.py
+
+# IDE/editor specific files
+.vscode/
+*.swp
+.idea/
