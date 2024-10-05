@@ -1,0 +1,16 @@
+/* styles.css */
+.alert-success {
+    color: green;
+}
+
+.alert-error, .alert-danger {
+    color: red;
+}
+
+.alert-warning {
+    color: orange;
+}
+
+.alert-info {
+    color: blue;
+}p

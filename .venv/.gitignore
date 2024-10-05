@@ -1,0 +1,31 @@
+# created by virtualenv automatically
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+db.sqlite3
+media/
+staticfiles/
+
+# If you have a .env file for environment variables
+.env
+
+# Django secret keys or settings stored in custom files
+settings_local.py
+
+# Virtual environment
+.venv/
+.env/
+
+# System files
+.DS_Store
+*.log
+*.pot
+*.pyc
+*.so
+*.swp
+*.swo
+*~
+
